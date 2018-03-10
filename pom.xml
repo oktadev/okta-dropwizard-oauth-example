@@ -41,6 +41,14 @@
             <artifactId>dropwizard-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-assets</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.okta.jwt</groupId>
             <artifactId>okta-jwt-verifier</artifactId>
             <version>0.2.0</version>

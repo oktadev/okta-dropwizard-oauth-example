@@ -1,26 +1,16 @@
 package com.example.resources;
 
-import javax.servlet.http.HttpServletRequest;
+import com.example.auth.AccessTokenPrincipal;
+import io.dropwizard.auth.Auth;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
 
-@Path("/")
+@Path("/message")
 public class HomePageResource {
 
-    LoginResource login;
-
-    public HomePageResource(LoginResource login){
-        this.login = login;
-    }
-
     @GET
-    public String handleGetRequest(@Context HttpServletRequest request) throws Exception{
-
-        login.authenticate(request);
-
-        return "Hello " + request.getSession().getAttribute("name") +
-                "! We'll be contacting you at: " + request.getSession().getAttribute("email");
+    public String handleGetRequest(@Auth AccessTokenPrincipal tokenPrincipal) {
+        return "Hello! We'll be contacting you at: " + tokenPrincipal.getName();
     }
-
 }
