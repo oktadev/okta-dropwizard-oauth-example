@@ -56,6 +56,7 @@
     </dependencies>
 
     <build>
+        <defaultGoal>compile exec:java</defaultGoal>
         <plugins>
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -132,6 +133,18 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>${mainClass}</mainClass>
+                    <arguments>
+                        <argument>server</argument>
+                        <argument>config.yml</argument>
+                    </arguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
