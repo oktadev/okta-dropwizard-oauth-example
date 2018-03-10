@@ -11,3 +11,16 @@ Health Check
 ---
 
 To see your applications health enter url `http://localhost:8081/healthcheck`
+
+
+Configuration
+---
+
+You must add the following properties to your `config.yml` before running this example
+
+```yaml
+signInWidget:
+  baseUrl: your-okta-org    # https://dev-123456.oktapreview.com
+  clientId: your-client-id-goes-here
+  issuer: your-okta-issuer  # https://dev-123456.oktapreview.com/oauth2/default
+```
