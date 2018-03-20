@@ -19,7 +19,7 @@ Configuration
 You must add the following properties to your `config.yml` before running this example
 
 ```yaml
-signInWidget:
+oktaOAuth:
   baseUrl: your-okta-org    # https://dev-123456.oktapreview.com
   clientId: your-client-id-goes-here
   issuer: your-okta-issuer  # https://dev-123456.oktapreview.com/oauth2/default

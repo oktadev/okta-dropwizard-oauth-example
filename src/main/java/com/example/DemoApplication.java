@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.auth.AccessTokenPrincipal;
 import com.example.auth.OktaOAuthAuthenticator;
+import com.example.models.OktaOAuthConfig;
 import com.example.resources.LoginWidgetConfigResource;
 import com.okta.jwt.JwtHelper;
 import io.dropwizard.Application;
@@ -35,26 +36,27 @@ public class DemoApplication extends Application<DemoConfiguration> {
     public void run(final DemoConfiguration configuration,
                     final Environment environment) {
 
-        // base Url for our resources
+        // base url for our resources
         environment.jersey().setUrlPattern("/api/*");
 
         // configure OAuth
         configureOAuth(configuration, environment);
 
         // add resources
-        environment.jersey().register(new LoginWidgetConfigResource(configuration.signInWidget));
         environment.jersey().register(new HomePageResource());
+        environment.jersey().register(new LoginWidgetConfigResource(configuration.oktaOAuth));
     }
 
     private void configureOAuth(final DemoConfiguration configuration, final Environment environment) {
         try {
+            OktaOAuthConfig widgetConfig = configuration.oktaOAuth;
             // Configure the JWT Validator, it will validate Okta's JWT access tokens
             JwtHelper helper = new JwtHelper()
-                    .setIssuerUrl(configuration.signInWidget.getIssuer())
-                    .setClientId(configuration.signInWidget.getClientId());
+                    .setIssuerUrl(widgetConfig.issuer)
+                    .setClientId(widgetConfig.clientId);
 
             // set the audience only if set, otherwise the default is: api://default
-            String audience = configuration.signInWidget.getAudience();
+            String audience = widgetConfig.audience;
             if (StringUtils.isNotEmpty(audience)) {
                 helper.setAudience(audience);
             }

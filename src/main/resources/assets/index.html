@@ -19,21 +19,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>Dropwizard OAuth 2.0 Example</title>
 
     <base href="/">
 
-    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.1.0/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.1.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet">
-    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.1.0/css/okta-theme.css" type="text/css" rel="stylesheet">
+    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet">
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-theme.css" type="text/css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-
 </head>
 
 <body>
@@ -138,8 +134,8 @@
           if (response.status === 'SUCCESS') {
 
             // for our example we have the id token and the access token
-            oktaSignIn.tokenManager.add('my_id_token', response[0]);
-            oktaSignIn.tokenManager.add('my_access_token', response[1]);
+            // oktaSignIn.tokenManager.add('my_id_token', response[0]);
+            oktaSignIn.tokenManager.add('my_access_token', response[0]);
 
             // hide the widget
             oktaSignIn.hide();

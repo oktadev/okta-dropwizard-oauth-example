@@ -1,9 +1,9 @@
 package com.example;
 
-import com.example.models.OktaSignInWidgetConfig;
+import com.example.models.OktaOAuthConfig;
 import io.dropwizard.Configuration;
 
 public class DemoConfiguration extends Configuration {
 
-    public OktaSignInWidgetConfig signInWidget = new OktaSignInWidgetConfig();
+    public OktaOAuthConfig oktaOAuth = new OktaOAuthConfig();
 }

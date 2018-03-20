@@ -1,6 +1,6 @@
 package com.example.resources;
 
-import com.example.models.OktaSignInWidgetConfig;
+import com.example.models.OktaOAuthConfig;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,18 +10,14 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 public class LoginWidgetConfigResource {
 
-    private final OktaSignInWidgetConfig config;
+    private final OktaOAuthConfig config;
 
-    public LoginWidgetConfigResource(OktaSignInWidgetConfig config) {
+    public LoginWidgetConfigResource(OktaOAuthConfig config) {
         this.config = config;
     }
 
-    public LoginWidgetConfigResource(String baseUrl, String clientId, String issuer) {
-        this.config = new OktaSignInWidgetConfig(baseUrl, clientId, issuer);
-    }
-
     @GET
-    public OktaSignInWidgetConfig getConfig() {
+    public OktaOAuthConfig getConfig() {
         return config;
     }
 }
